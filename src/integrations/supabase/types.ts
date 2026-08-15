@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      workouts: {
+        Row: {
+          calories: number | null
+          created_at: string
+          date: string
+          duration: number
+          id: string
+          notes: string | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          calories?: number | null
+          created_at?: string
+          date: string
+          duration: number
+          id?: string
+          notes?: string | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          calories?: number | null
+          created_at?: string
+          date?: string
+          duration?: number
+          id?: string
+          notes?: string | null
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
