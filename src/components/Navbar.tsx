@@ -6,7 +6,7 @@ import { useAuth } from "@/lib/auth";
 import { toast } from "sonner";
 
 const links = [
-  { to: "/", label: "Dashboard" },
+  { to: "/dashboard", label: "Dashboard" },
   { to: "/workouts", label: "Workouts" },
   { to: "/add-workout", label: "Add Workout" },
 ] as const;
@@ -25,7 +25,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+        <Link to="/dashboard" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
             <Activity className="h-5 w-5 text-primary-foreground" />
           </span>

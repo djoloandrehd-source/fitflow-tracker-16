@@ -37,7 +37,7 @@ function RegisterPage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    if (!authLoading && user) navigate({ to: "/", replace: true });
+    if (!authLoading && user) navigate({ to: "/dashboard", replace: true });
   }, [authLoading, user, navigate]);
 
   const onSubmit = async (event: React.FormEvent) => {
@@ -72,7 +72,7 @@ function RegisterPage() {
 
     if (data.session) {
       toast.success("Account created. Welcome to FitTrack!");
-      navigate({ to: "/", replace: true });
+      navigate({ to: "/dashboard", replace: true });
       return;
     }
 
