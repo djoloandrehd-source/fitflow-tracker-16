@@ -37,7 +37,7 @@ export function Navbar() {
             <Link
               key={link.to}
               to={link.to}
-              activeOptions={{ exact: link.to === "/" }}
+              activeOptions={{ exact: false }}
               activeProps={{ className: "bg-secondary text-foreground" }}
               className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
@@ -68,7 +68,7 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                activeOptions={{ exact: link.to === "/" }}
+                activeOptions={{ exact: false }}
                 activeProps={{ className: "bg-secondary text-foreground" }}
                 className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
               >
