@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AddWorkoutRouteImport } from './routes/add-workout'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as WorkoutsIndexRouteImport } from './routes/workouts.index'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const AddWorkoutRoute = AddWorkoutRouteImport.update({
   id: '/add-workout',
   path: '/add-workout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -50,6 +56,7 @@ const WorkoutsIdRoute = WorkoutsIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/add-workout': typeof AddWorkoutRoute
+  '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/workouts/$id': typeof WorkoutsIdRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/add-workout': typeof AddWorkoutRoute
+  '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/workouts/$id': typeof WorkoutsIdRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/add-workout': typeof AddWorkoutRoute
+  '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/workouts/$id': typeof WorkoutsIdRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/add-workout'
+    | '/dashboard'
     | '/login'
     | '/register'
     | '/workouts/$id'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/add-workout'
+    | '/dashboard'
     | '/login'
     | '/register'
     | '/workouts/$id'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/add-workout'
+    | '/dashboard'
     | '/login'
     | '/register'
     | '/workouts/$id'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AddWorkoutRoute: typeof AddWorkoutRoute
+  DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
   WorkoutsIdRoute: typeof WorkoutsIdRoute
@@ -122,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/add-workout'
       fullPath: '/add-workout'
       preLoaderRoute: typeof AddWorkoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AddWorkoutRoute: AddWorkoutRoute,
+  DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
   WorkoutsIdRoute: WorkoutsIdRoute,

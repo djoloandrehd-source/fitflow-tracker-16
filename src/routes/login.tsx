@@ -33,7 +33,7 @@ function LoginPage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    if (!authLoading && user) navigate({ to: "/", replace: true });
+    if (!authLoading && user) navigate({ to: "/dashboard", replace: true });
   }, [authLoading, user, navigate]);
 
   const onSubmit = async (event: React.FormEvent) => {
@@ -58,7 +58,7 @@ function LoginPage() {
     }
 
     toast.success("Welcome back!");
-    navigate({ to: "/", replace: true });
+    navigate({ to: "/dashboard", replace: true });
   };
 
   return (

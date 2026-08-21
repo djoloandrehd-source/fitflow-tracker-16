@@ -6,7 +6,7 @@ import { useAuth } from "@/lib/auth";
 import { toast } from "sonner";
 
 const links = [
-  { to: "/", label: "Dashboard" },
+  { to: "/dashboard", label: "Dashboard" },
   { to: "/workouts", label: "Workouts" },
   { to: "/add-workout", label: "Add Workout" },
 ] as const;
@@ -25,7 +25,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+        <Link to="/dashboard" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
             <Activity className="h-5 w-5 text-primary-foreground" />
           </span>
@@ -37,7 +37,7 @@ export function Navbar() {
             <Link
               key={link.to}
               to={link.to}
-              activeOptions={{ exact: link.to === "/" }}
+              activeOptions={{ exact: false }}
               activeProps={{ className: "bg-secondary text-foreground" }}
               className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
@@ -68,7 +68,7 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                activeOptions={{ exact: link.to === "/" }}
+                activeOptions={{ exact: false }}
                 activeProps={{ className: "bg-secondary text-foreground" }}
                 className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
               >
